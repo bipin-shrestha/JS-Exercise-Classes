@@ -84,8 +84,36 @@ console.log(bipin.toString());
 */
 
 class Car {
+    constructor(data) {
+        this.model = data.model;
+        this.milesPerGallon = data.milesPerGallon;
+        this.tank = 0;
+        this.odometer = 0;
 
+    }
+    fill(gallons) {
+        this.tank = this.tank + gallons;
+    }
+    drive(distance) {
+        this.odometer = this.odometer + distance;
+        this.tank = this.tank - ((1 / this.milesPerGallon) * distance);
+        return "I ran out of fuel at " + this.odometer + " miles."
+    }
 }
+const car = new Car({
+    model: "toyota",
+    milesPerGallon: 25
+});
+
+console.log(car);
+car.fill(20);
+//car.drive(75);
+console.log(car.drive(500));
+
+
+
+
+
 
 /*
   TASK 3
@@ -178,4 +206,13 @@ if (typeof exports !== 'undefined') {
     if (Instructor) { module.exports.Instructor = Instructor }
     if (Student) { module.exports.Student = Student }
     if (ProjectManager) { module.exports.ProjectManager = ProjectManager }
+} else {
+    var results = results || {}
+    if (Airplane) { results.Airplane = Airplane }
+    if (Person) { results.Person = Person }
+    if (Car) { results.Car = Car }
+    if (Lambdasian) { results.Lambdasian = Lambdasian }
+    if (Instructor) { results.Instructor = Instructor }
+    if (Student) { results.Student = Student }
+    if (ProjectManager) { results.ProjectManager = ProjectManager }
 }
