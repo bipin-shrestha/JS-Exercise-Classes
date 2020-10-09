@@ -9,16 +9,16 @@
 
 // EXAMPLE SOLUTION CODE:
 class Airplane {
-  constructor(name) {
-    this.name = name;
-    this.isFlying = false;
-  }
-  takeOff() {
-    this.isFlying = true;
-  }
-  land() {
-    this.isFlying = false;
-  }
+    constructor(name) {
+        this.name = name;
+        this.isFlying = false;
+    }
+    takeOff() {
+        this.isFlying = true;
+    }
+    land() {
+        this.isFlying = false;
+    }
 }
 
 /*
@@ -41,8 +41,33 @@ class Airplane {
 */
 
 class Person {
+    constructor(data) {
+        this.name = data.name;
+        this.age = data.age;
+        this.stomach = [];
+    }
+    eat(somefood) {
+        if (this.stomach.length < 10) {
+            this.stomach.push(somefood);
+        }
+    }
+    poop() {
+        this.stomach = [];
+    }
+    toString() {
 
+        return this.name + " , " + this.age;
+    }
 }
+const bipin = new Person({ name: 'Bipin', age: 32 });
+console.log(bipin);
+bipin.eat("Pizza");
+bipin.eat("Burger");
+bipin.eat("Coke");
+console.log(bipin);
+bipin.poop();
+console.log(bipin);
+console.log(bipin.toString());
 
 /*
   TASK 2
@@ -145,12 +170,12 @@ class ProjectManager {
 ///////// END OF CHALLENGE /////////
 ///////// END OF CHALLENGE /////////
 if (typeof exports !== 'undefined') {
-  module.exports = module.exports || {}
-  if (Airplane) { module.exports.Airplane = Airplane }
-  if (Person) { module.exports.Person = Person }
-  if (Car) { module.exports.Car = Car }
-  if (Lambdasian) { module.exports.Lambdasian = Lambdasian }
-  if (Instructor) { module.exports.Instructor = Instructor }
-  if (Student) { module.exports.Student = Student }
-  if (ProjectManager) { module.exports.ProjectManager = ProjectManager }
+    module.exports = module.exports || {}
+    if (Airplane) { module.exports.Airplane = Airplane }
+    if (Person) { module.exports.Person = Person }
+    if (Car) { module.exports.Car = Car }
+    if (Lambdasian) { module.exports.Lambdasian = Lambdasian }
+    if (Instructor) { module.exports.Instructor = Instructor }
+    if (Student) { module.exports.Student = Student }
+    if (ProjectManager) { module.exports.ProjectManager = ProjectManager }
 }
